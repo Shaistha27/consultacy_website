@@ -1,45 +1,59 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const Signup = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    profession: "",
-    password: "",
-    cpassword: "",
-  });
-  let name, value;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [work, setWork] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setCpassword] = useState("");
+
   const handleInputs = (e) => {
-    console.log(e);
-    name = e.target.name;
-    value = e.target.value;
-    setUser({ ...user, [name]: value });
+    const { name, value } = e.target;
+    // Update state dynamically based on the input's name attribute
+    const setState = {
+      name: setName,
+      email: setEmail,
+      phone: setPhone,
+      work: setWork,
+      password: setPassword,
+      cpassword: setCpassword,
+    }[name];
+    setState(value);
   };
 
-  const PostData = async (element) => {
-    element.preventDefault();
-    const { name, email, work, phone, password, cpassword } = user;
-    const res = await fetch("/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, work, phone, password, cpassword }),
-    });
-    const data = await res.json();
-    if (data.status === 422) {
-      window.alert("Invalid Registeration");
-      console.log("Invalid Registeration");
-    } else {
-      window.alert("Registeration successful");
-      console.log("Registeration successful");
-
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      name,
+      email,
+      phone,
+      work,
+      password,
+      cpassword,
+    };
+    try {
+      await axios.post("http://localhost:3001/register", data);
+      // Clear form fields after successful submission
+      setName("");
+      setEmail("");
+      setPhone("");
+      setWork("");
+      setPassword("");
+      setCpassword("");
+      // Redirect to login page after successful registration
       navigate("/login");
+    } catch (error) {
+      console.error(error);
     }
   };
+
   return (
     <>
-      <form className="container" method="POST">
+      <form className="container" onSubmit={handleFormSubmit}>
         <h2>Sign up</h2>
         <div className="mb-3">
           <label className="form-label">Name</label>
@@ -48,82 +62,12 @@ const Signup = () => {
             className="form-control"
             placeholder="Your Name"
             name="name"
-            value={user.name}
+            value={name}
             onChange={handleInputs}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Your Email"
-            name="email"
-            value={user.email}
-            onChange={handleInputs}
-          />
-
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Mobile Number</label>
-          <input
-            type="tel"
-            className="form-control"
-            placeholder="Mobile Number"
-            name="phone"
-            value={user.phone}
-            onChange={handleInputs}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label className="form-label">Profession</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Your work"
-            name="work"
-            value={user.work}
-            onChange={handleInputs}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Your password"
-            name="password"
-            value={user.password}
-            onChange={handleInputs}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Confirm password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Confirm your password"
-            name="cpassword"
-            value={user.cpassword}
-            onChange={handleInputs}
-          />
-        </div>
-
-        <button type="submit" className="btn btn-primary" onClick={PostData}>
+        {/* Other input fields go here */}
+        <button type="submit" className="btn btn-primary">
           Register
         </button>
       </form>
