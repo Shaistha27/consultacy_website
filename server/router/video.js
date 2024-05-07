@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { isAdmin } = require('../middlewares/authMiddleware');
+// const { isAdmin } = require('../middlewares/auth.test.js');
 const Video = require('../models/video.models.js');
+const uploads = require("./middleware/multer.middleware.js") 
 
 // Route to upload video (only accessible to admins)
-router.post('/videos', isAdmin, async (req, res) => {
+const VideoRouter = router.post('/videos', isAdmin, async (req, res) => {
   try {
     // Logic to upload video
     const { title, description, cloudinaryUrl } = req.body;
@@ -30,4 +31,4 @@ router.post('/videos', isAdmin, async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = VideoRouter;

@@ -1,5 +1,5 @@
 // Import the isAdmin middleware
-const { isAdmin } = require('../middlewares/authMiddleware');
+const { isAdmin } = require('./middleware/auth.js');
 
 // Mock user object with admin role
 const adminUser = { id: '123', role: 'admin' };
