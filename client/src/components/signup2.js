@@ -1,136 +1,136 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import signup from "./api"; // Import the signup function from your API file
-
-const Signup2 = () => {
+import "./Signup.css";
+const Signup = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
     phone: "",
-    profession: "",
     password: "",
     cpassword: "",
   });
 
   const handleInputs = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setUser((prevUser) => ({
+      ...prevUser,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
+  const PostData = async (element) => {
+    element.preventDefault();
+    const { name, email, phone, password, cpassword } = user;
+    console.log(name, email, phone, password, cpassword);
     try {
-      // Call the signup function with user data
-      const response = await signup(user);
-      // Handle successful signup
-      window.alert("Registration successful");
-      console.log("Registration successful");
-      navigate("/login");
+      const res = await fetch("/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+      const data = await res.json();
+      console.log(data);
+      console.log(res);
+      console.log(data.msg);
+      // if (data.status === 422) {
+      //   window.alert("Invalid Registeration");
+      //   console.log("Invalid Registeration");
+      // } else {
+      //   window.alert("Registeration successful");
+      //   console.log("Registeration successful");
+
+      // }
+      if (res.ok) {
+        alert(data.msg);
+        // Redirect user to login page or do something else
+        navigate("/login");
+      } else {
+        alert(data.error);
+      }
     } catch (error) {
-      // Handle signup error
-      window.alert("Invalid Registration");
-      console.log("Error during signup:", error);
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
     }
   };
-
   return (
     <>
-      <form className="container" onSubmit={handleSignup} action="http://localhost:3001/register">
-        <h2>Sign up</h2>
-        <div className="mb-3">
-          <label className="form-label">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Your Name"
-            name="name"
-            value={user.name}
-            onChange={handleInputs}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Your Email"
-            name="email"
-            value={user.email}
-            onChange={handleInputs}
-          />
-
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
+      <form className="container" method="POST" onSubmit={PostData}>
+        <h2 className="heading">Sign up</h2>
+        <div className="parent">
+          <div className="mb-2">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Your Name"
+              name="name"
+              value={user.name}
+              onChange={handleInputs}
+            />
+            <div className="smallLine"></div>
           </div>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Mobile Number</label>
-          <input
-            type="tel"
-            className="form-control"
-            placeholder="Mobile Number"
-            name="phone"
-            value={user.phone}
-            onChange={handleInputs}
-          />
-        </div>
+          <div className="mb-2 emailClass">
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Your Email"
+              name="email"
+              value={user.email}
+              onChange={handleInputs}
+            />
+            <div className="smallLine"></div>
+          </div>
+          <div className="mb-2">
+            <input
+              type="tel"
+              className="form-control"
+              placeholder="Mobile Number"
+              name="phone"
+              value={user.phone}
+              onChange={handleInputs}
+            />
+            <div className="smallLine"></div>
+          </div>
 
-        <div className="mb-3">
-          <label className="form-label">Profession</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Your work"
-            name="work"
-            value={user.profession}
-            onChange={handleInputs}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Your password"
-            name="password"
-            value={user.password}
-            onChange={handleInputs}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Confirm password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Confirm your password"
-            name="cpassword"
-            value={user.cpassword}
-            onChange={handleInputs}
-          />
-        </div>
+          <div className="mb-2">
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword"
+              placeholder="Your password"
+              name="password"
+              value={user.password}
+              onChange={handleInputs}
+            />
+            <div className="smallLine"></div>
+          </div>
+          <div className="mb-2">
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Confirm your password"
+              name="cpassword"
+              value={user.cpassword}
+              onChange={handleInputs}
+            />
+            <div className="smallLine"></div>
+          </div>
 
-        <button type="submit" className="btn btn-primary">
-          Register
-        </button>
+          <button type="submit" className="btn">
+            Register
+          </button>
+        </div>
       </form>
       <div>
         <p>
+          Already registered?
           <NavLink
             to="/login"
-            className="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+            className="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover loginLink"
           >
-            Already registered
+            Login
           </NavLink>
         </p>
       </div>
@@ -138,4 +138,4 @@ const Signup2 = () => {
   );
 };
 
-export default Signup2;
+export default Signup;

@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: #f5f5f5;
+  }
+  .heading {
+    color: #150048;
+    display: flex;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    margin: 10px;
+    padding: 10px;
+  }
+  .form-label,
+  .form-label::placeholder {
+    color: #150048;
+    font-family: "Montserrat", sans-serif;
+    /* outline: #150048; */
+    font-size: 15px;
+  }
+  .btn {
+    background: #150048;
+    color: #f5f5f5;
+    font-family: "Montserrat", sans-serif;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 33px;
+    border: none;
+  }
+  .btn:hover {
+    background: #330066;
+    color: #f5f5f5;
+    font-family: "Montserrat", sans-serif;
+  }
+  p {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    font-weight: 400;
+  }
+  p a {
+    font-weight: 600;
+    margin-left: 5px;
+  }
+  
+  .parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .form-control {
+    border: none;
+    background: transparent;
+    outline: none !important;
+  }
+  .form-control:focus,
+  .form-control:active {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent;
+  }
+  .smallLine {
+    background: rgba(53, 50, 50, 0.355);
+    height: 1px;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }

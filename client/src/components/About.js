@@ -1,5 +1,5 @@
 import React from "react";
-import girl1 from "../images/girl1.jpeg";
+// import girl1 from "../images/girl1.jpeg";
 const About = () => {
   return (
     <>
@@ -7,7 +7,7 @@ const About = () => {
         <form method="">
           <div className="row">
             <div className="col-md-4">
-              <img src={girl1} alt="girl" />
+              <img src="" alt="girl" />
             </div>
             <div className="col-md-6">
               <div className="profile-head">
