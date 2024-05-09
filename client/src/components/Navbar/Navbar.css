@@ -31,6 +31,7 @@ nav ul li a:hover{
 .dark-nav{
     background: #212EA0;
     transition: 0.5s;
+    width: 100%;
 }
 .menu_icon{
     display:none;

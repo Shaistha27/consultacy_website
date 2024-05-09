@@ -1,3 +1,9 @@
+const crypto = require('crypto');
+
+// Generate a random secret key
+const secretKey = crypto.randomBytes(32).toString('hex');
+console.log(secretKey);
+
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -7,10 +13,6 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   email: {
-    type: String,
-    required: true,
-  },
-  work: {
     type: String,
     required: true,
   },
@@ -26,7 +28,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  isAdmin: {
+    type: Boolean,
+    default: false, // set to true for admin users
+  },
   tokens: [
     {
       token: {
@@ -53,7 +58,7 @@ userSchema.pre("save", async function (next) {
 // we are generating tokens
 userSchema.methods.generateAuthToken = async function () {
   try {
-    let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
+    let token = jwt.sign({ _id: this._id }, secretKey);
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     return token;

@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 const { upload } = require("./middleware/multer.middleware.js");
+
 const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
@@ -9,7 +10,7 @@ const router = require("./router/user.router.js");
 
 
 const mongoose = require("mongoose");
-const User = require("./models/user_schema.js");
+const User = require("./models/user.models.js");
 
 app.use("/",router);
 
@@ -59,9 +60,7 @@ app.post("/upload-files", upload.single("file"), async (req, res) => {
   }
 });
 
-app.get("/", async(req, res)=> {
-  res.send("Success !!!!!");
-})
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

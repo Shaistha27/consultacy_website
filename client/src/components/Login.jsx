@@ -8,22 +8,13 @@ const Login = () => {
 
   const LoginUser = async (element) => {
     element.preventDefault();
-    const res = await fetch("/signin", {
+    const res = await fetch("/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json();
-    // if (data.status === 400) {
-    //   window.alert("Invalid Login");
-    //   console.log("Invalid Login");
-    // } else {
-    //   window.alert("Login successful");
-    //   console.log("Login successful");
-
-    //   navigate("/");
-    // }
-    if (res.status === 400) {
+     if (res.status === 400) {
       window.alert("Invalid Login");
       console.log("Invalid Login");
     } else if (res.status === 200) {

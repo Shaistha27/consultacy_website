@@ -21,37 +21,35 @@ const Signup = () => {
   const PostData = async (element) => {
     element.preventDefault();
     const { name, email, phone, password, cpassword } = user;
-    console.log(name, email, phone, password, cpassword);
+  
+    // Check if any required fields are empty
+    if (!name || !email || !phone || !password || !cpassword) {
+      alert("Please fill all fields");
+      return;
+    }
+  
     try {
       const res = await fetch("/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
+        body: JSON.stringify({ name, email, phone, password, cpassword }), // Include all required fields in the request body
       });
+      
       const data = await res.json();
       console.log(data);
-      console.log(res);
-      console.log(data.msg);
-      // if (data.status === 422) {
-      //   window.alert("Invalid Registeration");
-      //   console.log("Invalid Registeration");
-      // } else {
-      //   window.alert("Registeration successful");
-      //   console.log("Registeration successful");
-
-      // }
+      
       if (res.ok) {
         alert(data.msg);
-        // Redirect user to login page or do something else
         navigate("/login");
       } else {
-        alert(data.error);
+        alert(data.error || "An error occurred");
       }
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred. Please try again.");
     }
   };
+  
   return (
     <>
       <form className="container" method="POST" onSubmit={PostData}>

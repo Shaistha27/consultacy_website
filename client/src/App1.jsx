@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React  from "react";
 
 
-import viteLogo from "/vite.svg";
+
 // import './App.css'
+import "./index.css"
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Hero from "./components/Hero/Hero.jsx";
 import Programs from "./components/Programs/Programs.jsx";
@@ -12,11 +13,11 @@ import Services from "./components/Services/Services.jsx";
 import Testimonials from "./components/Testimonials/Testimonials.jsx";
 import Contacts from "./components/Contacts/Contacts.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import VideoPlayer from "./components/VideoPlayer/VideoPlayer.jsx";
 
-function App() {
 
-  const [playState, setPlayState] = useState(false);
+function App1() {
+
+
 
   return (
     <div>
@@ -25,7 +26,7 @@ function App() {
       <div className="container">
         {/* <Title subTitle="Our PROGRAM" title="What we Offer" /> */}
         <Programs />
-        <About  setPlayState={setPlayState}/>
+        <About  />
         <Title subTitle="We ensure better servives for better world!" title="Our Services" />
         <Services/>
         <Title subTitle="TESTIMONIALS" title="What our students say" />
@@ -34,9 +35,9 @@ function App() {
         <Contacts />
         <Footer />
 </div>
-<VideoPlayer playState={playState} setPlayState ={setPlayState}/>
+
     </div>
   );
 }
 
-export default App;
+export default App1;

@@ -3,6 +3,7 @@ import "./Navbar.css";
 // import menu_icon from "../../assets/menu_icon"
 import program_1 from "../../assets/image.png"
 import { set } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -36,6 +37,7 @@ const Navbar = () => {
         <li><a href="#campus" onClick={() => scrollToSection('campus', 100)}>Services</a></li>
         <li><a href="#testimonials" onClick={() => scrollToSection('testimonials', 100)}>Testimonials</a></li>
         <li><a href="#contact" onClick={() => scrollToSection('contact', 100)}>Contact Us</a></li>
+        <li><Link to="/signup">Signup</Link></li>
       </ul>
       <img src={program_1} alt="" className='menu_icon' onClick={toggleMenu} />
     </nav>
