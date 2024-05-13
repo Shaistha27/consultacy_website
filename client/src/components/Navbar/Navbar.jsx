@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Navbar.css";
 // import menu_icon from "../../assets/menu_icon"
 import program_1 from "../../assets/image.png"
-import { set } from 'react-hook-form';
+// import { set } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {

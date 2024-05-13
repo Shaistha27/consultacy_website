@@ -21,7 +21,14 @@ const Login = () => {
       window.alert("Login successful");
       console.log("Login successful");
       navigate("/");
-    } else {
+    }
+    else if( res.status === 201){
+      window.alert("admin Login sucessfull");
+      console.log("admin login sucessfully");
+      navigate("/dashboard");
+
+    }
+     else {
       window.alert("Unexpected error occurred");
       console.log("Unexpected error occurred");
     }

@@ -4,6 +4,11 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const AdminSchema = new mongoose.Schema({
+  name:{
+    type: String,
+    required: true,
+    unique: true
+  },
   email: {
     type: String,
     required: true,

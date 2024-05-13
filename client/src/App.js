@@ -92,6 +92,10 @@ import { Routes, Route } from "react-router-dom";
 import App1 from "./App1.jsx";
 import Signup from "./components/signup2";
 import Login from "./components/Login.jsx"
+import Admin from "./components/Admin.jsx";
+import Programs from "./components/Programs/Programs.jsx";
+import Devops from "./components/Devops.jsx";
+import VideoUpload from "./components/VideoUpload.jsx";
 
 const App = () => {
   return (
@@ -100,6 +104,9 @@ const App = () => {
         <Route path="/" element={<App1 />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Admin />} />
+        <Route path="/devops" element={<Devops/>} />
+        <Route path="/video" element={<VideoUpload/>}/>
       </Routes>
     </div>
   );

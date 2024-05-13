@@ -29,8 +29,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   isAdmin: {
-    type: Boolean,
-    default: false, // set to true for admin users
+    type: Number,
+    default: 0, // set to true for admin users
   },
   tokens: [
     {
