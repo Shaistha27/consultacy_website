@@ -1,0 +1,24 @@
+h4 {
+    color: #150048;
+    text-align: center;
+    padding: 10px;
+    font-family: "Inter", sans-serif;
+    margin: 10px;
+    font-weight: 700;
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  .profileMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 72px;
+    padding: 20px;
+  }
+  

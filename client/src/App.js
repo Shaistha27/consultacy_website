@@ -95,18 +95,23 @@ import Login from "./components/Login.jsx"
 import Admin from "./components/Admin.jsx";
 import Programs from "./components/Programs/Programs.jsx";
 import Devops from "./components/Devops.jsx";
-import VideoUpload from "./components/VideoUpload.jsx";
-
+import VideoUpload from "./components/VideoUpload/VideoUpload.jsx";
+import VideoList from "./components/VideoList/VideoList.jsx";
+import Logout from "./components/Logout.js"
+import Profile from "./components/Profile/Profile.jsx";
 const App = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<App1 />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Admin />} />
         <Route path="/devops" element={<Devops/>} />
         <Route path="/video" element={<VideoUpload/>}/>
+        <Route path="/videolist" element={<VideoList/>}/>
+        <Route path="/logout" element={<Logout/>}/>
       </Routes>
     </div>
   );

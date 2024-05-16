@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user.models.js");
 const Admin = require("../models/admin.models.js")
 const asyncHandler = require("../utils/asyncHandler");
+
+
 router.use(express.json());
 
 router.get("/", (req, res) => {
@@ -142,6 +144,9 @@ module.exports = {
 //     res.status(500).json({ msg: "Server Error" });
 //   }
 // });
+
+
+
 
 module.exports = {
   router: router,

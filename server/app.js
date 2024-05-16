@@ -5,6 +5,7 @@ const { upload } = require("./middleware/multer.middleware.js");
 const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
+const cookieParser = require('cookie-parser');
 const cors = require("cors");
 const router = require("./router/user.router.js");
 const connect = require("./db/conn.js");
@@ -19,7 +20,8 @@ app.use("/",router);
 
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-
+app.use(require("./router/auth"));
+app.use(cookieParser());
 
 const corsOptions = {
   origin: "http://localhost:3000",

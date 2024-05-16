@@ -1,0 +1,40 @@
+/* VideoList.css */
+
+.video-list {
+  margin-top: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust as needed */
+}
+
+.video-item {
+  width: calc(33.33% - 10px); /* Adjust width and margin as needed */
+  /* margin-bottom: 20px; */
+  box-sizing: border-box;
+}
+
+/* .video-item h3 {
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.video-item p {
+  margin-bottom: 10px;
+  
+} */
+.title {
+  margin-top: -5px; 
+  background-color: rgb(200, 196, 196);
+  width:28vw ;
+  margin-left: 20px;
+}
+
+.video-player {
+  width: 28vw;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.heading{
+  padding-left: 0px
+}

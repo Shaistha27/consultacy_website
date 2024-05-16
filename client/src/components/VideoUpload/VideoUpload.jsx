@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
-import axios from "axios"
-import { ThreeDots } from 'react-loader-spinner';
+import React, { useState } from "react";
+import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
+import { Link } from "react-router-dom";
+import "./VideoUpload.css";
 
 const VideoUpload = ({ addNewVideo }) => {
   const [currentVideo, setCurrentVideo] = useState(null);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [uploadedVideo, setUploadedVideo] = useState(null);
 
   const uploadFile = async () => {
     if (!currentVideo) {
-      setError('No video file selected');
+      setError("No video file selected");
       return;
     }
 
     const formData = new FormData();
-    formData.append('file', currentVideo);
-    formData.append('upload_preset', 'videos_preset');
+    formData.append("file", currentVideo);
+    formData.append("upload_preset", "videos_preset");
 
     const config = {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
       },
     };
 
     try {
-      const cloudName = 'dwoxvpgr3';
-      const resourceType = 'video';
+      const cloudName = "dwoxvpgr3";
+      const resourceType = "video";
       const api = `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`;
 
       const res = await axios.post(api, formData, config);
@@ -46,16 +48,21 @@ const VideoUpload = ({ addNewVideo }) => {
     try {
       setLoading(true);
       const videoUrl = await uploadFile();
-      const response = await axios.post('/video', { title, description, videoUrl });
+      const response = await axios.post("/video", {
+        title,
+        description,
+        videoUrl,
+      });
 
       setCurrentVideo(null);
-      setTitle('');
-      setDescription('');
+      setTitle("");
+      setDescription("");
 
       setUploadedVideo(response.data.video);
       setLoading(false);
       window.alert("Video uploaded successfully!");
-      // addNewVideo(response.data.video);
+
+      // history.push('/videolist');
     } catch (error) {
       setError(error.message);
     }
@@ -66,10 +73,10 @@ const VideoUpload = ({ addNewVideo }) => {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title" className="title1" style={{"fontSize":"20px", "fontWeight": "bold"}}>Title</label>
           <br />
           <input
             type="text"
@@ -79,7 +86,7 @@ const VideoUpload = ({ addNewVideo }) => {
           />
         </div>
         <div>
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description" style={{"fontSize":"20px", "fontWeight": "bold", "marginTop":"10px"}}>Description</label>
           <br />
           <textarea
             id="description"
@@ -88,7 +95,7 @@ const VideoUpload = ({ addNewVideo }) => {
           />
         </div>
         <div>
-          <label htmlFor="video">Video</label>
+          <label htmlFor="video" className="video" style={{"fontSize":"20px", "fontWeight": "bold"}}>Video</label>
           <br />
           <input
             type="file"
@@ -111,9 +118,9 @@ const VideoUpload = ({ addNewVideo }) => {
       )}
 
       {error && <p>{error}</p>}
+      <Link to="/videolist" className="link">Go to Video List</Link>
     </div>
   );
 };
 
 export default VideoUpload;
-

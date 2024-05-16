@@ -1,0 +1,56 @@
+.main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form{
+  background-color: gainsboro;
+  height: 55vh;
+  width: 30vw;
+  border-radius: 10px;
+  
+
+}
+
+input[type="text"]{
+  border: none; /* Remove all borders */
+  background: none;
+  border-bottom: 1px solid black; /* Add bottom border */
+  outline: none; /* Remove outline on focus (optional) */
+  margin-bottom: 20px;
+}
+textarea{
+  border: none; /* Remove all borders */
+  background: none;
+  border-bottom: 1px solid black; /* Add bottom border */
+  outline: none; /* Remove outline on focus (optional) */
+  width: 15vw;
+  margin-bottom: 20px;
+}
+.video{
+  margin-left: 140px;
+}
+input[type="file"]{
+  margin-left: 140px;
+  
+}
+
+button{
+  margin-top: 30px;
+  height: 5vh;
+  width: 9vw;
+  border-radius: 5px;
+}
+.link {
+  position: absolute;
+  font-weight: bold;
+  font-size: 20px;
+  bottom: 50px; /* Adjust this value for proper alignment */
+}
+.link:hover{
+ 
+  color:rgb(10, 53, 160);
+  
+  
+}
