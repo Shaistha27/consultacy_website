@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import "./Login.css"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,7 +37,11 @@ const Login = () => {
 
   return (
     <>
-      <form method="POST" onSubmit={LoginUser}>
+    <h1 className="login-heading">Login</h1>
+    <div className="main-body">
+    
+      <form method="POST" onSubmit={LoginUser} className="form-body">
+       
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
@@ -83,13 +88,16 @@ const Login = () => {
       </form>
       <div>
         <p>
-          <NavLink
+          <NavLink id="create"
             to="/signup"
             className="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-          >
+            
+            
+            style={{fontSize: "20px",  textDecoration: "none", color: "blue !important" , fontWeight:"bold", marginTop:"450px", }} >
             Create an account
           </NavLink>
         </p>
+      </div>
       </div>
     </>
   );

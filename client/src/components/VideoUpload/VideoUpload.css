@@ -1,4 +1,4 @@
-.main-container{
+/* .main-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,17 +14,17 @@ form{
 }
 
 input[type="text"]{
-  border: none; /* Remove all borders */
+  border: none; 
   background: none;
-  border-bottom: 1px solid black; /* Add bottom border */
-  outline: none; /* Remove outline on focus (optional) */
+  border-bottom: 1px solid black; 
+  outline: none;
   margin-bottom: 20px;
 }
 textarea{
-  border: none; /* Remove all borders */
+  border: none; 
   background: none;
-  border-bottom: 1px solid black; /* Add bottom border */
-  outline: none; /* Remove outline on focus (optional) */
+  border-bottom: 1px solid black; 
+  outline: none; 
   width: 15vw;
   margin-bottom: 20px;
 }
@@ -46,11 +46,148 @@ button{
   position: absolute;
   font-weight: bold;
   font-size: 20px;
-  bottom: 50px; /* Adjust this value for proper alignment */
+  bottom: 50px; 
 }
 .link:hover{
  
   color:rgb(10, 53, 160);
-  
-  
+ 
+} */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  background-color: gainsboro;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="file"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"],
+button[type="button"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4fa94d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #3e8540;
+}
+
+.link {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: #4fa94d;
+}
+
+.link:hover {
+  color: #3e8540;
+}
+
+.video-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.video-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.video-item {
+  width: 300px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+}
+
+.video-player {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.title {
+  margin-top: 10px;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.delete-icon svg {
+  color: #ff0000;
+}
+
+.delete-confirmation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.delete-confirmation p {
+  margin-bottom: 10px;
+}
+
+.delete-confirmation button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-confirmation button:hover {
+  background-color: #ff0000;
+  color: #fff;
 }

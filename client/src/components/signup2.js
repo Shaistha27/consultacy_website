@@ -27,7 +27,6 @@ const Signup = () => {
       alert("Please fill all fields");
       return;
     }
-  
     try {
       const res = await fetch("/register", {
         method: "POST",
@@ -122,12 +121,12 @@ const Signup = () => {
         </div>
       </form>
       <div>
-        <p>
+        <p style={{"fontSize": "20px"}}  >
           Already registered?
           <NavLink
             to="/login"
             className="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover loginLink"
-          >
+         style={{"fontSize": "20px"}} >
             Login
           </NavLink>
         </p>

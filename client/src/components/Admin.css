@@ -1,4 +1,4 @@
-.main-container {
+ .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,10 +21,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .cards:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
   
   .cards h1 {
     margin: 0;
     font-size: 24px;
+    color: #333; 
+  }
+  
+  .cards:hover h1 {
+    color: #555; 
   }
   

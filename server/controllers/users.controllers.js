@@ -22,7 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     const userExist = await User.findOne({ email: email });
     if (userExist) {
-      return res.status(422).json({ error: "Email already exists" });
+      return res.status(422).json({ error: "User with this Email already exists" });
     } else if (password != cpassword) {
       return res.status(422).json({ error: "Password doesn't match" });
     } else {
@@ -92,58 +92,6 @@ const loginUser = asyncHandler(async (req, res) => {
 module.exports = {
   loginUser
 };
-
-
-
-
-// const loginUser = asyncHandler(async (req, res) => {
-//   try {
-//     const { email, password } = req.body;
-//     if (!email || !password) {
-//       return res.status(400).json({ msg: "Please fill in all the details" });
-//     }
-//     let user = await User.findOne({ email });
-//     let admin = await Admin.findOne({ email });
-
-//     if (!user && !admin) {
-//       return res.status(400).json({ msg: "Invalid Credentials" });
-//     }
-
-//     if (user) {
-//       const isMatch = await bcrypt.compare(password, user.password);
-
-//       if (!isMatch) {
-//         return res.status(400).json({ msg: "Invalid Credentials" });
-//       }
-
-//       // Generate JWT token for user
-//       const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-//         expiresIn: "1h",
-//       });
-
-//       // Send success response with user data and JWT token
-//       res.status(200).json({ msg: "user Login Successful", user, token });
-//     } else {
-//       const isMatch = await bcrypt.compare(password, admin.password);
-
-//       if (!isMatch) {
-//         return res.status(400).json({ msg: "Invalid Credentials" });
-//       }
-
-//       // Generate JWT token for admin
-//       const token = jwt.sign({ _id: admin._id }, process.env.JWT_SECRET, {
-//         expiresIn: "1h",
-//       });
-
-//       // Send success response with admin data and JWT token
-//       res.status(202).json({ msg: "Admin Login Successful", admin, token });
-//     }
-
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({ msg: "Server Error" });
-//   }
-// });
 
 
 

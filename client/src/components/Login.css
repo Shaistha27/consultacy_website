@@ -1,0 +1,104 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  } */
+
+  .main-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-body{
+    /* margin-top: 30px; */
+    background-color: white;
+  }
+  form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #333; /* Darken the label color */
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .form-text {
+    margin-bottom: 1rem;
+    color: #777; /* Lighten the text color */
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Darken the background color on hover */
+  }
+  
+  .link-dark {
+    color: #333; /* Darken the link color */
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+  }
+  
+  .link-dark:hover {
+    color: #007bff; /* Change link color on hover */
+  }
+  
+  .link-underline-opacity-25 {
+    text-decoration: underline;
+  }
+  
+  .link-underline-opacity-100-hover:hover {
+    text-decoration: underline;
+  }
+  /* .active-link:hover {
+    font-size: 20px;
+    text-decoration: none;
+    color: #007bff; 
+  } */
+
+ .login-heading{
+  margin-left: 570px;
+  margin-top: 100px;
+  font-size: 35px;
+  
+ }
