@@ -55,27 +55,45 @@
     display: flex;
     align-items: center;
     float: right;
+    padding-top: 20px;
   }
-  .logo {
+  /* .logo {
     float: left;
+  } */
+  .container {
+    max-width: 100vw;
+    height: 12vh;
+    
+  }
+  .innaTechLogo {
+    width: 300px;
+    font-size: bold;
+    margin-right: 250px;
+    /* margin-top: -90px; */
   }
   
   /*-----------media query---------*/
   
   @media (max-width: 1000px) {
-    .logo {
-      width: 140px;
+    .innaTechLogo {
+      width: 350px;
+      margin-top: 10px;
     }
     nav ul li {
       margin: 10px 15px;
     }
     .container {
       max-width: 100vw;
+      height: 7vh;
+      
     }
   }
   @media (max-width: 840px) {
     nav {
       padding: 15px 0;
+    }
+    .container{
+      height: 10vh;
     }
     nav ul {
       position: fixed;
@@ -108,6 +126,7 @@
   @media (min-width: 1000px) {
     .container {
       max-width: 100vw;
+      height: none;
     }
   }
    

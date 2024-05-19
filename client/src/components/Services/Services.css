@@ -1,91 +1,15 @@
-/* .campus {
-    margin: 80px auto;
-    width: 90%;
-    text-align: center;
-  }
-  
-  .gallery {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 40px;
-  }
-  
-  .gallery-container {
-    position: relative;
-    overflow: hidden;
-    width: 300px;
-    height: 200px;
-    margin: 0 auto;
-  }
-  
-  .gallery-container img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  
-  .gallery-container:hover img {
-    transform: scale(1.1);
-    filter: blur(5px); 
-  }
-  
-  .gallery-container h4 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 10px;
-    font-size: 20px;
-    color: white;
-    transition: opacity 0.3s ease;
-    opacity: 0; 
-  }
-  
-  .gallery-container:hover h4 {
-    opacity: 1; 
-  }
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px; 
-    height: 47px;
-    font-size: 25px;
-  }
-  
-  .right-arrow {
-    margin-top: -3px; 
-  }
-  .btn:hover {
-    background-color: white;
-    color: #212EA0;
-    cursor: pointer;
-}
-
-  
-  @media (max-width: 800px) {
-    .gallery {
-      flex-wrap: wrap;
-    }
-    .gallery img {
-      width: 88%;
-      margin-bottom: 25px;
-    }
-    .right-arrow {
-      margin-top: 5px; 
-      margin-left: 2px;
-    }
-  }
-   */
 
    .campus {
     margin: 80px auto;
     width: 90%;
     text-align: center;
   }
-  
+  .campus h2{
+    font-size: 35px;
+  font-weight: bold;
+  color: #150048;
+  margin-bottom: 20px;
+  }
   .gallery {
     display: flex;
     align-items: center;

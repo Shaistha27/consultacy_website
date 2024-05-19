@@ -4,6 +4,7 @@ import { useAuth } from "../utils/AuthProvider";
 import "./Navbar2.css";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+import Logo from "../../assets/innaNew.png"
 
 const Navbar = () => {
   const { isLoggedIn } = useAuth();
@@ -42,8 +43,9 @@ const Navbar = () => {
   return (
     <nav className={navbarClass}>
       <div className="mainNav">
+        <div className="mainNav2">
         <NavLink className="navbar-brand logo" to="/">
-          logo
+          <img className='innaTechLogo' src={Logo} style={{width:"80px"}} alt="logo" />
         </NavLink>
         <ul className={`nav-links ${mobileMenu ? "show-mobile-menu" : "hide-mobile-menu"}`}>
           <li className="nav-item">
@@ -90,6 +92,7 @@ const Navbar = () => {
         <div className="menu-icon" onClick={toggleMenu}>
           {mobileMenu ? <RxCross2 size={30} /> : <IoMenu size={30} />}
         </div>
+      </div>
       </div>
     </nav>
   );
