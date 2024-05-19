@@ -1,4 +1,4 @@
-.testimonials {
+/* .testimonials {
     margin: 80px auto;
     padding: 0 80px;
     position: relative;
@@ -16,9 +16,7 @@
     background: #212EA0;
     
   }
-  /* #x{
-    color: white;
-  } */
+  
   .next-btn{
    left: -70px;
    color: white;
@@ -38,13 +36,13 @@
   
   .slider ul {
     display: flex;
-    width: 200%; /* Adjusted width to fit two images side by side */
+    width: 200%; 
     transition: 0.5s;
   }
   
   .slider ul li {
     list-style: none;
-    width: 50%; /* Adjusted width to decrease size of images */
+    width: 50%;
     scroll-snap-align: center;
   }
   
@@ -87,20 +85,19 @@
   }
   
   .slide {
-    /* existing styles */
+    
   }
   
   .user-info {
-    /* existing styles */
-    margin-right: 16px; /* add space between adjacent elements */
+    
+    margin-right: 16px; 
   }
   
   .user-info:last-child {
-    margin-right: 0; /* remove right margin for the last element */
+    margin-right: 0; 
   }
   
   .user-info img {
-    /* existing styles */
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -112,4 +109,174 @@
       width: 75px;
       height: 75px;
     }
-  }  
+  }   */
+
+  /* Testimonials.css */
+/* 
+.carousel {
+  margin: auto;
+  max-width: 600px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.carousel h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: none;
+  width: 100%;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.carousel-item p:nth-child(2) {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  color: #000;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prevArrow,
+.nextArrow {
+  font-size: 24px;
+} */
+
+
+/* Testimonials.css */
+
+.carousel {
+  margin: auto;
+  max-width: 600px;
+  text-align: center;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+}
+
+.carousel h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333; /* Dark text color */
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: none;
+  width: 100%;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item p {
+  font-size: 18px;
+  color: #555; /* Medium-dark text color */
+  line-height: 1.6;
+}
+
+.carousel-item p:nth-child(2) {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333; /* Darker text color */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #555; /* Medium-dark arrow color */
+  cursor: pointer;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  color: #000; /* Darker arrow color on hover */
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prevArrow,
+.nextArrow {
+  font-size: 24px;
+}
+
+/* Overriding Bootstrap's default green background color for active carousel item */
+.carousel-item.active {
+  background-color: #f9f9f9; /* Ensure the active item has the same background as the carousel */
+}

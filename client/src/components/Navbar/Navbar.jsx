@@ -1,47 +1,100 @@
-import React, { useEffect, useState } from 'react';
-import "./Navbar.css";
-// import menu_icon from "../../assets/menu_icon"
-import program_1 from "../../assets/image.png"
-// import { set } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { useAuth } from "../utils/AuthProvider";
+import "./Navbar2.css";
+import { IoMenu } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
+  const { isLoggedIn } = useAuth();
+  const location = useLocation();
+
   const [sticky, setSticky] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      window.scrollY > 300 ? setSticky(true) : setSticky(false);
-    });
+    const handleScroll = () => {
+      setSticky(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
-  
-  const [mobileMenu, setMobilemenu] = useState(false);
+
   const toggleMenu = () => {
-    mobileMenu? setMobilemenu(false) : setMobilemenu(true);
-  }
+    setMobileMenu(!mobileMenu);
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
+  const isHome = location.pathname === "/";
+
+  const navbarClass = `container ${sticky ? "dark-nav" : ""} ${isHome ? "" : "dark-nav"}`;
+
   return (
-    <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
-      <img src='' alt='logo' className='logo'/>
-      <ul className={mobileMenu?'' :'hide-mobile-menu'}>
-        {/* Navigation using anchor tags */}
-        <li><a href="#hero" onClick={() => scrollToSection('hero',100)}>Home</a></li>
-        <li><a href="#Programs" onClick={() => scrollToSection('program',100)}>Program</a></li>
-        <li><a href="#about" onClick={() => scrollToSection('about',100)}>About Us</a></li>
-        <li><a href="#campus" onClick={() => scrollToSection('campus', 100)}>Services</a></li>
-        <li><a href="#testimonials" onClick={() => scrollToSection('testimonials', 100)}>Testimonials</a></li>
-        <li><a href="#contact" onClick={() => scrollToSection('contact', 100)}>Contact Us</a></li>
-        <li><Link to="/signup">Signup</Link></li>
-      </ul>
-      <img src={program_1} alt="" className='menu_icon' onClick={toggleMenu} />
+    <nav className={navbarClass}>
+      <div className="mainNav">
+        <NavLink className="navbar-brand logo" to="/">
+          logo
+        </NavLink>
+        <ul className={`nav-links ${mobileMenu ? "show-mobile-menu" : "hide-mobile-menu"}`}>
+          <li className="nav-item">
+            <NavLink className="nav-link active homeLink" to="/" onClick={() => scrollToSection("hero")}>
+              Home
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link active" to="#program" onClick={() => scrollToSection("program")}>
+              Programs
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link active" to="#campus" onClick={() => scrollToSection("campus")}>
+              Services
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="#contact" onClick={() => scrollToSection("contact")}>
+              Contact
+            </NavLink>
+          </li>
+          {isLoggedIn ? (
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/logout">
+                Logout
+              </NavLink>
+            </li>
+          ) : (
+            <>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/signup">
+                  Registration
+                </NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+        <div className="menu-icon" onClick={toggleMenu}>
+          {mobileMenu ? <RxCross2 size={30} /> : <IoMenu size={30} />}
+        </div>
+      </div>
     </nav>
   );
 };
 
 export default Navbar;
+
+

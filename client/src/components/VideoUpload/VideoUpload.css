@@ -60,35 +60,61 @@ button{
   align-items: center;
 }
 
-form {
-  background-color: gainsboro;
+.video-uploadForm {
+  box-shadow: 2px 4px 6px #7059a7;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
-input[type="text"],
+/* input[type="text"],
 textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
+} */
 
-input[type="file"] {
+/* input[type="file"] {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+} */
+.titleInput,.descInput{
+  border: none;
+  outline: none;
 }
+.smallLine{
+  height: 2px;
+  background-color: #ccc;
+  margin-bottom: 10px;
 
+}
+.videoSubBtn{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #150048;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+.vidLink{
+  text-align: center;
+  color: #150048;
+  font-weight:bold;
+  margin-top: 15px;
+}
 button[type="submit"],
 button[type="button"] {
   width: 100%;
   padding: 10px;
-  background-color: #4fa94d;
+  /* background-color: #4fa94d; */
   color: white;
   border: none;
   border-radius: 5px;
@@ -97,19 +123,19 @@ button[type="button"] {
 
 button[type="submit"]:hover,
 button[type="button"]:hover {
-  background-color: #3e8540;
+  /* background-color: #3e8540; */
 }
 
 .link {
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
-  color: #4fa94d;
+  /* color: #4fa94d; */
 }
 
-.link:hover {
+/* .link:hover {
   color: #3e8540;
-}
+} */
 
 .video-container {
   width: 100%;
@@ -147,7 +173,7 @@ button[type="button"]:hover {
   border-radius: 5px;
 }
 
-.title {
+.videoTitle {
   margin-top: 10px;
 }
 

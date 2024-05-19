@@ -1,16 +1,8 @@
 import React from "react";
 import "./Contacts.css";
-import program_1 from "../../assets/image.png";
-import { IoMdMail } from "react-icons/io";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-// import msg_icon from "../../assets/image.png"
-// import mail_icon from "../../assets/image.png"
-// import phone_icon from "../../assets/image.png"
-// import location_icon from "../../assets/image.png"
-// import white_arrow from "../../assets/image.png"
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
-const Contacts = () => {
+const Contact = () => {
   const [result, setResult] = React.useState("");
 
   const onSubmit = async (event) => {
@@ -35,71 +27,79 @@ const Contacts = () => {
       setResult(data.message);
     }
   };
-  return (
-    <div className="contact" id="contact">
-      <div className="contact-col">
-        <h3>
-         We're Here to help you! 
-        </h3>
-        <p>
-          Our team is dedicated to providing exceptional service and support.
-          Whether you have inquiries about our programs, need assistance with
-          enrollment, or have any other questions, don't hesitate to reach out.
-          We're here to help you every step of the way!
-        </p>
-        <ul>
-          <li>
-            {" "}
-            <IoMdMail className="icons" />
-            contact@PMahaboobSana.com
-          </li>
-          <li>
-            {" "}
-            <FaPhoneAlt className="icons" />
-            +12345665
-          </li>
-          <li>
-            {" "}
-            <FaLocationDot className="icons" />
-            banjara hills <br /> jublee hills
-          </li>
-        </ul>
-      </div>
-      <div className="contact-col">
-        <form onSubmit={onSubmit}>
-          <label>Your Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter Your Name"
-            required
-          />
-          <label>Phone No.</label>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Enter Your mobile no"
-            required
-          />
-          <label>Write your message here</label>
-          <textarea
-            name="message"
-            id=""
-            cols="30"
-            rows="6"
-            placeholder="enter your message"
-            required
-          ></textarea>
 
-          <button type="submit" className="btn" color="#212EA0">
-            Submit now 
-            {/* <img src={program_1} alt="white_arow" /> */}
-          </button>
-        </form>
-        <span>{result}</span>
+  return (
+    <div id="contact" >
+      <h2>Get in touch</h2>
+      <div className="main-contact">
+      <div className="contact">
+       
+        <div className="contact-col left">
+          <h3 style={{marginTop:"-10px", fontFamily:'"Inter", "sans-serif"'}}>We're here to help you!</h3>
+          <p>
+            Our team is dedicated to providing exceptional service and support.
+            Whether you have inquiries about our programs, need assistance with
+            enrollment, or have any other questions, don't hesitate to reach
+            out. We're here to help you every step of the way!
+          </p>
+          <div className="adminInfo">
+          <div className="ul_parent">
+            <ul>
+              <li>
+                <FaEnvelope className="icon" style={{marginRight:"20px"}}/>
+                contact@PMahaboobSana.com
+              </li>
+              <li style={{marginRight:"190px"}}>
+                <FaPhone className="icon" />
+                +12345665
+              </li>
+              <li >
+                <FaMapMarkerAlt className="icon" />
+                Banjara Hills 
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        </div>
+        </div>
+
+        <div className="contact-col right">
+          <form onSubmit={onSubmit} className="contact-form">
+            <input className="contact-input"
+              type="text"
+              name="name"
+              placeholder="Enter Your Name"
+              required
+            />
+            <input className="contact-input"
+              type="tel"
+              name="phone"
+              placeholder="Enter Your mobile no"
+              pattern="[0-9]{10}"
+              title="Please enter a 10-digit phone number"
+              required
+            />
+            <textarea className="contact-input"
+              name="message"
+              id=""
+              cols="30"
+              rows="6"
+              placeholder="Enter your message"
+              required
+            ></textarea>
+
+            <button type="submit" className=" contactBtn" color="#212EA0">
+              Submit now
+            </button>
+          </form>
+          <span className="result-span">{result}</span>
+        </div>
+        </div>
       </div>
-    </div>
+   
   );
 };
 
-export default Contacts;
+export default Contact;
+

@@ -1,28 +1,109 @@
-.footer{
-    margin: 10px auto;
-    display: flex;
+.parent_footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+  background: #150048;
+  padding: 10px;
+  color: #f5f5f5;
+  width: 100%;
+
+}
+
+#parent_footer1, .footer2{
+  width: 100vw !important;
+  margin-left: -12px;
+}
+.parent_footer .section1,
+.parent_footer .section2,
+.parent_footer .section1 span,
+.parent_footer .section1 h2,
+.parent_footer .section2 h3,
+.parent_footer .section2 p,
+.footer2 {
+  background: #150048;
+}
+.footer_heading {
+  color: #f5f5f5;
+}
+h3 {
+  font-family: "Inter", sans-serif;
+}
+.section1 hr {
+  background-color: #f5f5f5;
+  display: inline-block;
+  border-width: 5px;
+  border: 1px solid;
+  margin: auto;
+  width: 55px;
+  border-color: #f5f5f5;
+  font-family: "Montserrat", sans-serif;
+}
+.socialChild1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.icon:hover {
+  transform: scale(1.05);
+}
+.contactsChild1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section2 p {
+  cursor: pointer;
+  transition: font-weight 0.3s ease, font-size 0.3s ease;
+}
+
+.section2 p:hover {
+  font-weight: bold;
+  font-size: 103%;
+  transition: ease-in-out;
+}
+
+.motto {
+  color: #f5f5f5;
+}
+
+
+@media (max-width: 600px) {
+  .parent_footer {
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #797979;
-    padding:15px 0;
-}
-.footer ul li{
-    list-style: none;
-    display: inline-block;
-    margin-left: 20px;
-}
+    justify-content: center;
+    width: 100vw !important;
+    padding: 0; 
+  }
+  #parent_footer1,
+  .footer2 {
+    width: 100vw !important;
+    margin-left: -11px;
+  }
 
-/*-------media query------*/
+  .socialChild1,
+  .contactsChild1 {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+  }
 
-@media(max-width: 600px){
-   .footer{
-    display: block;
+  .section1 hr {
+    width: 80%;
+  }
+
+  .section2 p {
     text-align: center;
-   }
-   .footer ul li{
-    margin: 10px;
-   }
-   .footer ul{
-    margin-top: 10px;
-   }
+    width: 100%;
+  }
 }

@@ -1,26 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
 }
-.contact_info_item,
-.Email_info_item,
-.Address_info_item {
-  border: 1px solid black;
-  width: 250px;
-}
-.row {
-  display: flex;
-  align-items: center;
-}
-.home-page {
-  text-align: center;
-  color: lightseagreen;
-}
-.col-md-4 img {
-  height: 300px;
-}
-.notfound h1,
-.notfound h2 {
-  text-align: center;
-  color: lightseagreen;
-}
+

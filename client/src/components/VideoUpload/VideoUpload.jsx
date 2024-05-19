@@ -74,25 +74,31 @@ const VideoUpload = ({ addNewVideo }) => {
 
   return (
     <div className="main-container">
-      <form onSubmit={handleSubmit}>
+      <form  className="video-uploadForm"  onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title" className="title1" style={{"fontSize":"20px", "fontWeight": "bold"}}>Title</label>
+          {/* <label htmlFor="title" className="videoTitle" style={{"fontSize":"20px", "fontWeight": "bold"}}>Title</label> */}
           <br />
           <input
+          className="titleInput"
             type="text"
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title"
           />
+          <div className="smallLine"></div>
         </div>
         <div>
-          <label htmlFor="description" style={{"fontSize":"20px", "fontWeight": "bold", "marginTop":"10px"}}>Description</label>
+          {/* <label htmlFor="description" className="videoDescription" style={{"fontSize":"20px", "fontWeight": "bold", "marginTop":"10px"}}>Description</label> */}
           <br />
           <textarea
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            placeholder="Description"
+            className="descInput"
           />
+           <div className="smallLine"></div>
         </div>
         <div>
           <label htmlFor="video" className="video" style={{"fontSize":"20px", "fontWeight": "bold"}}>Video</label>
@@ -102,9 +108,13 @@ const VideoUpload = ({ addNewVideo }) => {
             accept="video/*"
             id="video"
             onChange={handleVideoChange}
+            className="browseBtn"
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="videoSubBtn">Submit</button>
+        <div  className="vidLink">
+        <Link to="/videolist">Go to Video List</Link>
+        </div>
       </form>
 
       {loading && (
@@ -112,13 +122,13 @@ const VideoUpload = ({ addNewVideo }) => {
           visible={true}
           height="80"
           width="80"
-          color="#4fa94d"
+          color="#150048"
           ariaLabel="Three Dots"
         />
       )}
 
       {error && <p>{error}</p>}
-      <Link to="/videolist" className="link">Go to Video List</Link>
+     
     </div>
   );
 };

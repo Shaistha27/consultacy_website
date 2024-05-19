@@ -1,0 +1,108 @@
+/* .carousel-item {
+    text-align: center;
+  }
+  #carouselExample {
+    margin: 60px;
+    padding: 20px;
+    color: #150048;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+  }
+  .carousel-control-prev {
+    color: #150048;
+  }
+  
+  .carousel-inner {
+    font-size: 20px;
+    width: 60vw;
+    margin-left: 150px;
+  }
+  .pbtn .carousel-control-prev-icon,
+  .arrow {
+    color: black !important;
+  }
+  .nextArrow,
+  .prevArrow {
+    margin-top: 100px;
+    color: #150048;
+  }
+  h2 {
+    
+    text-align: center;
+  }
+  .pbtn1, .nbtn{
+    background: #150048;
+  width: 35px !important;
+  height: 45px;
+  margin-top: 120px;
+  border-radius: 50% !important;
+  }
+   */
+
+
+   .carousel {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px #7059a7;
+  }
+  
+  .carousel h2 {
+    margin-bottom: 20px;
+  }
+  
+  .carousel-inner {
+    position: relative;
+    overflow: hidden;
+    height: 150px; /* Adjust as needed */
+  }
+  
+  .carousel-item {
+    display: none;
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .carousel-item.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+  
+  .carousel-control-prev .prevArrow,
+  .carousel-control-next .nextArrow {
+    font-size: 24px;
+    color: #150048;
+  }
+  
+  .carousel-control-prev .prevArrow:hover,
+  .carousel-control-next .nextArrow:hover {
+    color: #330066;
+  }
+  
+  .myicon {
+    font-size: 24px;
+  }
+  
