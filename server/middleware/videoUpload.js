@@ -1,4 +1,4 @@
-// Middleware to check if user is an admin
+
 const User = require("../models/video.models.js");
 
 const isAdmin = (req, res, next) => {

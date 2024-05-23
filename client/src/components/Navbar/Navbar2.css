@@ -1,176 +1,218 @@
+
 .user_image {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  .mainNav{
-    font-family: "Montserrat", sans-serif;
-  }
-  .profile {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  nav {
-    width: 100vw !important;
-    color: #f5f5f5;
-    /* color: red; */
-    padding: 4px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10;
-  }
-  .logo {
-    width: 180px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.mainNav {
+  font-family: "Montserrat", sans-serif;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+nav {
+  width: 100vw !important;
+  color: #f5f5f5;
+  /* color: red; */
+  padding: 4px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+.logo {
+  width: 180px;
+}
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 5px 20px;
+  font-size: 16px;
+}
+nav ul li a {
+  transition: font-size 0.3s, font-weight 0.3s;
+}
+nav ul li a:hover {
+  font-size: 18px;
+  font-weight: bold;
+}
+.dark-nav {
+  height: 8vh;
+  background: #150048;
+  transition: 0.5s;
+  width: 100vw;
+  /* margin-bottom: 20px; */
+}
+.menu-icon {
+  display: none;
+}
+ul {
+  display: flex;
+  align-items: center;
+  float: right;
+  padding-top: 20px;
+}
+.container {
+  max-width: 100vw;
+  height: 12vh;
+}
+.innaTechLogo {
+  width: 300px;
+  font-size: bold;
+  margin-right: 250px;
+  /* margin-top: -90px; */
+}
+.profile-dropdown {
+  position: relative;
+}
+.profile-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dropdown-menu .username-dropdown {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: none;
+}
+.show-dropdown-menu {
+  display: block;
+}
+.dropdown-menu li {
+  list-style: none;
+}
+.dropdown-menu li + li {
+  margin-top: 5px;
+}
+.dropdown-menu a {
+  color: #333; /* Adjust the text color */
+  text-decoration: none;
+}
+.dropdown-menu a:hover {
+  text-decoration: underline;
+}
+/* Media Queries */
+@media (max-width: 1000px) {
+  .innaTechLogo {
+    width: 350px;
+    margin-top: 10px;
   }
   nav ul li {
-    display: inline-block;
-    list-style: none;
-    margin: 5px 20px;
-    font-size: 16px;
+    margin: 10px 15px;
   }
-  nav ul li a {
-    transition: font-size 0.3s, font-weight 0.3s;
+  .container {
+    max-width: 100vw;
+    height: 7vh;
+  }
+}
+@media (max-width: 840px) {
+  nav {
+    padding: 15px 0;
+  }
+  .container {
+    height: 10vh;
+  }
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: 0px;
+    bottom: 0;
+    background: #150048;
+    z-index: -1;
+    width: 200px;
+    padding-top: 70px;
+    transition: 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 25px 40px;
   }
   nav ul li a:hover {
     font-size: 18px;
     font-weight: bold;
   }
-  .dark-nav {
-    height: 8vh;
-    background: #150048;
-    transition: 0.5s;
-    width: 100vw;
-    /* margin-bottom: 20px; */
+  .menu_icon {
+    display: block;
+    width: 30px;
+    cursor: pointer;
+  }
+  .hide-mobile-menu {
+    right: -200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(21, 0, 72, 0.9);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .nav-item {
+    margin: 1rem 0;
   }
   .menu-icon {
-    display: none;
+    display: block;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
   }
-  ul {
+  .show-mobile-menu {
+    transform: translateX(0);
+  }
+  .hide-mobile-menu {
+    transform: translateX(-100%);
+  }
+  .profile-dropdown {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    float: right;
-    padding-top: 20px;
-  }
-  /* .logo {
-    float: left;
-  } */
-  .container {
-    max-width: 100vw;
-    height: 12vh;
     
   }
-  .innaTechLogo {
-    width: 300px;
-    font-size: bold;
-    margin-right: 250px;
-    /* margin-top: -90px; */
+  .dropdown-menu {
+    border: none;
+    background-color: #150048;
+    color:#f5f5f5;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
-  
-  /*-----------media query---------*/
-  
-  @media (max-width: 1000px) {
-    .innaTechLogo {
-      width: 350px;
-      margin-top: 10px;
-    }
-    nav ul li {
-      margin: 10px 15px;
-    }
-    .container {
-      max-width: 100vw;
-      height: 7vh;
-      
-    }
+  .dropdown-menu a{
+    color: #f5f5f5;
   }
-  @media (max-width: 840px) {
-    nav {
-      padding: 15px 0;
-    }
-    .container{
-      height: 10vh;
-    }
-    nav ul {
-      position: fixed;
-      top: 0;
-      right: 0px;
-      bottom: 0;
-      background: #150048;
-      z-index: -1;
-      width: 200px;
-      padding-top: 70px;
-      transition: 0.5s;
-    }
-    nav ul li {
-      display: block;
-      margin: 25px 40px;
-    }
-    nav ul li a:hover {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .menu_icon {
-      display: block;
-      width: 30px;
-      cursor: pointer;
-    }
-    .hide-mobile-menu {
-      right: -200px;
-    }
-  }
-  @media (min-width: 1000px) {
-    .container {
-      max-width: 100vw;
-      height: none;
-    }
-  }
+  .dropdown-menu li {
+    margin-top: 10px;
    
-
-
-    @media screen and (max-width: 768px) {
-    .nav-links {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(21, 0, 72, 0.9);
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-  
-    .nav-item {
-      margin: 1rem 0;
-    }
-  
-    .menu-icon {
-      display: block;
-      color: #fff;
-      cursor: pointer;
-      position: absolute;
-      top: 1rem;
-      right: 2rem;
-    }
-  
-    .show-mobile-menu {
-      transform: translateX(0);
-    }
-  
-    .hide-mobile-menu {
-      transform: translateX(-100%);
-    }
   }
-  @media (min-width: 1000px) {
-    .container {
-      max-width: 100vw;
-    }
-  }
+}
+

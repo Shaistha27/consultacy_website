@@ -3,10 +3,7 @@ const DB = "mongodb+srv://sana2:sana%402004@cluster0.lsixo8i.mongodb.net/?retryW
 const connect= mongoose
   .connect(DB, {
     useNewUrlParser: true,
-    // useCreateIndex: true,
-    // useUnifiedTopology: true,
-    // useFindAndModify: false,
-    // authSource: "admin",
+    
   })
   .then(() => {
     console.log("Connected to Mongo");

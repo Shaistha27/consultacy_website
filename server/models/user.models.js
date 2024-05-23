@@ -1,8 +1,6 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
 
-// Generate a random secret key
-const secretKey = crypto.randomBytes(32).toString('hex');
-console.log(secretKey);
+const secretKey = "MYNAMEISSHAISTHATABASSUMPERSUINGECEINMJCET";
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -30,7 +28,7 @@ const userSchema = new mongoose.Schema({
   },
   isAdmin: {
     type: Number,
-    default: 0, // set to true for admin users
+    default: 0,
   },
   tokens: [
     {
@@ -42,7 +40,6 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
-// password hashing
 userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {
     try {
@@ -55,10 +52,9 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-// we are generating tokens
 userSchema.methods.generateAuthToken = async function () {
   try {
-    let token = jwt.sign({ _id: this._id }, secretKey);
+    let token = jwt.sign({ _id: this._id, username: this.name }, secretKey);
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     return token;
