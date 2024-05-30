@@ -16,7 +16,7 @@
 nav {
   width: 100vw !important;
   color: #f5f5f5;
-  /* color: red; */
+
   padding: 4px 0;
   position: fixed;
   top: 0;
@@ -46,8 +46,7 @@ nav ul li a:hover {
   height: 8vh;
   background: #150048;
   transition: 0.5s;
-  width: 100vw;
-  /* margin-bottom: 20px; */
+  
 }
 .menu-icon {
   display: none;
@@ -66,7 +65,7 @@ ul {
   width: 300px;
   font-size: bold;
   margin-right: 250px;
-  /* margin-top: -90px; */
+ 
 }
 .profile-dropdown {
   position: relative;
@@ -104,13 +103,13 @@ ul {
   margin-top: 5px;
 }
 .dropdown-menu a {
-  color: #333; /* Adjust the text color */
+  color: #333; 
   text-decoration: none;
 }
 .dropdown-menu a:hover {
   text-decoration: underline;
 }
-/* Media Queries */
+
 @media (max-width: 1000px) {
   .innaTechLogo {
     width: 350px;
