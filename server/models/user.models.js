@@ -1,7 +1,3 @@
-const crypto = require("crypto");
-
-const secretKey = "MYNAMEISSHAISTHATABASSUMPERSUINGECEINMJCET";
-
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -30,6 +26,14 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  enrolled: [
+    {
+      enrollments: {
+        type: Number,
+        default: 0,
+      },
+    },
+  ],
   tokens: [
     {
       token: {
@@ -54,7 +58,10 @@ userSchema.pre("save", async function (next) {
 
 userSchema.methods.generateAuthToken = async function () {
   try {
-    let token = jwt.sign({ _id: this._id, username: this.name }, secretKey);
+    let token = jwt.sign(
+      { _id: this._id, username: this.name },
+      process.env.SECRET_KEY
+    );
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     return token;

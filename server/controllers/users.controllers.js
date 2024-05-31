@@ -71,7 +71,7 @@ const loginUser = asyncHandler(async (req, res) => {
       expires: new Date(Date.now() + 25892000000), // About 30 days
       httpOnly: true,
     });
-
+    console.log("userCont-token", token);
     const response = {
       message:
         user.isAdmin === 1 ? "Admin login successful" : "User login successful",
@@ -79,7 +79,7 @@ const loginUser = asyncHandler(async (req, res) => {
       userId: user._id.toString(),
       username: user.name,
     };
-
+    console.log("response", response);
     const status = user.isAdmin === 1 ? 201 : 200;
     return res.status(status).json(response);
   } catch (err) {

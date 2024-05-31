@@ -1,23 +1,54 @@
-import { children, createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
+import { useEnrollment } from "./EnrollmentContext";
 
 export const authContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
+  const [user, setUser] = useState(null);
+  const { resetEnrollment } = useEnrollment();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (token) {
+        try {
+          const response = await axios.get("http://localhost:3001/api/me", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          setUser(response.data.user);
+          console.log("response.data.user", response.data.user);
+        } catch (error) {
+          console.error("Failed to fetch user data", error);
+        }
+      }
+    };
+
+    fetchUser();
+  }, [token]);
+
   const storeTokenInLs = (serverToken) => {
     setToken(serverToken);
-    return localStorage.setItem("token", serverToken);
+    localStorage.setItem("token", serverToken);
   };
 
   const isLoggedIn = !!token;
-  // logout function
+  const isAdmin = user?.isAdmin === 1;
+
   const LogoutUser = () => {
+    console.log("Logging out, resetting enrollment status...");
     setToken("");
-    return localStorage.removeItem("token");
+    setUser(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    resetEnrollment();
   };
+
   return (
-    <authContext.Provider value={{ isLoggedIn, storeTokenInLs, LogoutUser }}>
+    <authContext.Provider
+      value={{ isLoggedIn, isAdmin, storeTokenInLs, LogoutUser, user, token }}
+    >
       {children}
     </authContext.Provider>
   );

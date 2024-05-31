@@ -10,10 +10,10 @@
 // root.render(
 //   <React.StrictMode>
 //     <BrowserRouter>
-    
+
 //     <App />
 //     <AuthProvider/>
-      
+
 //     </BrowserRouter>
 //   </React.StrictMode>
 // );
@@ -23,7 +23,6 @@
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -31,17 +30,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./components/utils/AuthProvider";
-
+import { EnrollmentProvider } from "./components/utils/EnrollmentContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        
+      <EnrollmentProvider>
+        <AuthProvider>
           <App />
-        
-      </AuthProvider>
+        </AuthProvider>
+      </EnrollmentProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

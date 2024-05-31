@@ -1,5 +1,7 @@
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({
+  path: "./config.env",
+});
 const { upload } = require("./middleware/multer.middleware.js");
 
 const express = require("express");
@@ -11,6 +13,8 @@ const router = require("./router/user.router.js");
 const connect = require("./db/conn.js");
 const videoRoutes = require("./router/video.router.js");
 const signUploadRoutes = require("./router/sign-upload.js");
+const myRoute = require("./router/me.router.js");
+const enrollRoute = require("./router/enrollment.router.js");
 
 const mongoose = require("mongoose");
 const User = require("./models/user.models.js");
@@ -30,19 +34,12 @@ app.use(cors(corsOptions));
 
 app.use("/video", videoRoutes);
 app.use("/sign-upload", signUploadRoutes);
+app.use("/api", myRoute);
+app.use("/api", enrollRoute);
 
 const PORT = 3001;
 require("./db/conn.js");
 
-app.get("/contact", (req, res) => {
-  res.cookie("Test", "thapa", {
-    domain: "yourdomain.com",
-    path: "/contact",
-    secure: true,
-    sameSite: "strict",
-  });
-  res.send("This is Contact Page!");
-});
 app.get("/signin", (req, res) => {
   res.send("This is Login Page!");
 });
