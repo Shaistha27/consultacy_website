@@ -1,0 +1,119 @@
+/* General styling for the component */
+.programs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* Ensure items do not wrap */
+  margin: 80px auto;
+  width: 100%; /* Full width to accommodate items in a single line */
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+}
+
+.program {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: auto; /* Auto width to accommodate the content */
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure items do not wrap */
+  justify-content: center;
+  gap: 20px;
+  color: #150048;
+}
+
+.product {
+  background: #f5f5f5;
+  border-radius: 15px;
+  box-shadow: 2px 4px 6px #7059a7;
+  padding: 16px;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prog_heading {
+  margin-bottom: 5px;
+  text-align: center;
+  margin-top: 20px;
+  color: #150048;
+  font-family: "Inter", "sans-serif";
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.product p {
+  margin-bottom: 10px;
+}
+
+.product .enrollBtn {
+  background: #150048;
+  color: #f5f5f5;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 130px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product .enrollBtn:hover {
+  background: #330066;
+}
+.product .enrollBtn:disabled {
+  background: hsl(257, 30%, 40%);
+  cursor: not-allowed;
+}
+.availability,
+.price {
+  margin-top: auto;
+  font-size: 1.2em;
+  color: #150048;
+  font-family: "Montserrat", sans-serif;
+}
+.yes {
+  font-weight: bold;
+}
+.courseName {
+  font-family: "Inter", "sans-serif";
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+}
+.prodDesc {
+  font-family: "Montserrat", sans-serif;
+}
+.shareIcon {
+  font-weight: bolder !important;
+  font-weight: 700px !important;
+}
+@media (max-width: 650px) {
+  .programs {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    overflow-x: visible; /* Remove horizontal scroll on small screens */
+  }
+
+  .program {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+  }
+
+  .product-list {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    gap: 20px;
+  }
+
+  .product {
+    width: 90%; /* Full width on smaller screens */
+    margin: 10px 0; /* Reduce margin for better spacing */
+  }
+}

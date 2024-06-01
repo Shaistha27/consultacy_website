@@ -26,14 +26,13 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  enrolled: [
+  enrolledCourses: [
     {
-      enrollments: {
-        type: Number,
-        default: 0,
-      },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
     },
   ],
+
   tokens: [
     {
       token: {

@@ -87,9 +87,29 @@ const loginUser = asyncHandler(async (req, res) => {
     res.status(500).json({ msg: "Server Error" });
   }
 });
+const getUserEnrollmentStatus = async (req, res) => {
+  try {
+    const userId = req.rootUser._id;
+    const user = await User.findById(userId).populate("enrolledCourses");
 
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const enrollmentStatus = user.enrolledCourses.reduce((status, product) => {
+      status[product._id] = "Enrolled";
+      return status;
+    }, {});
+
+    res.status(200).json(enrollmentStatus);
+  } catch (error) {
+    console.error("Error fetching enrollment status:", error);
+    res.status(500).json({ message: "Error fetching enrollment status" });
+  }
+};
 module.exports = {
   router: router,
   registerUser: registerUser,
   loginUser: loginUser,
+  getUserEnrollmentStatus,
 };

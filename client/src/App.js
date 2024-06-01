@@ -4,14 +4,13 @@ import App1 from "./App1.jsx";
 import Signup from "./components/signup2";
 import Login from "./components/Login.jsx";
 import Admin from "./components/Admin.jsx";
-import Programs from "./components/Programs/Programs.jsx";
 import Devops from "./components/Devops.jsx";
 import VideoUpload from "./components/VideoUpload/VideoUpload.jsx";
 import VideoList from "./components/VideoList/VideoList.jsx";
 import Logout from "./components/Logout.js";
 import Profile from "./components/Profile/Profile.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
-import Enroll from "./components/Enroll/Enroll.jsx";
+// import Enroll from "./components/Enroll/Enroll.jsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 const App = () => {
   return (
@@ -27,7 +26,7 @@ const App = () => {
         <Route path="/video" element={<VideoUpload />} />
         <Route path="/videolist" element={<VideoList />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/api/enroll" element={<Enroll courseId="vlsi" />} />
+        {/* <Route path="/api/enroll" element={<Enroll courseId="vlsi" />} /> */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

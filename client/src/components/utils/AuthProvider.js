@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { useEnrollment } from "./EnrollmentContext";
 
 export const authContext = createContext();
 
@@ -8,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   const [user, setUser] = useState(null);
-  const { resetEnrollment } = useEnrollment();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -17,8 +15,8 @@ export const AuthProvider = ({ children }) => {
           const response = await axios.get("http://localhost:3001/api/me", {
             headers: { Authorization: `Bearer ${token}` },
           });
-          setUser(response.data.user);
           console.log("response.data.user", response.data.user);
+          setUser(response.data.user);
         } catch (error) {
           console.error("Failed to fetch user data", error);
         }
@@ -42,7 +40,6 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem("token");
     localStorage.removeItem("username");
-    resetEnrollment();
   };
 
   return (

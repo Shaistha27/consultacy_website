@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { useAuth } from "../utils/AuthProvider";
+import { useAuth } from "../utils/AuthProvider.js";
 import "./Navbar2.css";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-import { FaUserCircle } from "react-icons/fa"; // Import the user icon
+import { FaUserCircle } from "react-icons/fa"; 
 import Logo from "../../assets/innaNew.png";
 
 const Navbar = () => {
@@ -114,17 +113,24 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login
-              </NavLink>
-            </li>
+{
+  isLoggedIn? (
+" "
+  ):(
+    <>
+     <li className="nav-item">
+            <NavLink className="nav-link" to="/login">
+              Login
+             </NavLink>
+             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/signup">
                 Registration
               </NavLink>
             </li>
+    </>
+  )
+}
 
             <li className="nav-item profile-dropdown">
               <div className="profile-icon" onClick={toggleMenu}>
