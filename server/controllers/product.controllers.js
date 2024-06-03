@@ -6,7 +6,13 @@ exports.createProductController = async (req, res) => {
   try {
     const { productName, productDescription, productPrice, Availability } =
       req.body;
-    console.log(productName, productDescription, productPrice, Availability);
+    console.log(
+      "product details",
+      productName,
+      productDescription,
+      productPrice,
+      Availability
+    );
     console.log(req.body);
     // Validate required fields
     if (!productName)
@@ -51,6 +57,13 @@ exports.createProductController = async (req, res) => {
 exports.getAllCourses = async (req, res) => {
   try {
     const products = await Product.find();
+    console.log("products", products);
+    products.forEach((Product) =>
+      console.log("product name", Product.productName)
+    );
+    products.forEach((Product) =>
+      console.log("product price", Product.productPrice)
+    );
     res.status(200).json(products);
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -7,15 +7,20 @@ const authenticate = async (req, res, next) => {
       req.cookies.jwtoken ||
       (req.headers.authorization &&
         req.headers.authorization.replace("Bearer ", ""));
-    // console.log("token", token);
-    // console.log("process.env.SECRET_KEY", process.env.SECRET_KEY);
+    console.log("Token received: ", token);
+
+    if (!token) {
+      return res.status(401).send("Unauthorized: No token found");
+    }
+
     const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
+    console.log("Token verified: ", verifyToken);
 
     const rootUser = await User.findOne({
       _id: verifyToken._id,
       "tokens.token": token,
     });
-    // console.log("rootUser", rootUser);
+
     if (!rootUser) {
       throw new Error("User not found");
     }
@@ -25,7 +30,7 @@ const authenticate = async (req, res, next) => {
     req.userID = rootUser._id;
     next();
   } catch (err) {
-    res.status(401).send("Unauthorized : No token found");
+    res.status(401).send("Unauthorized: Invalid token");
     console.log(err);
   }
 };
