@@ -36,6 +36,7 @@ router.post("/create-subscription", async (req, res) => {
     res.status(200).json({
       subscriptionId: subscription.id,
       clientSecret: subscription.latest_invoice.payment_intent.client_secret,
+      redirectUrl: "/videolist",
     });
   } catch (error) {
     console.error("Error creating subscription:", error);
