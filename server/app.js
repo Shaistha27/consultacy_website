@@ -132,7 +132,7 @@ app.use("/products", paymentRoutes);
 app.get("/payment", (req, res) => {
   res.render("payment-form", {
     publishableKey:
-      "pk_test_51PGDQKSEBnF3Dk58FPhrwUtCtA6Nw8IEpKKqU2KEqvXOZjn17lzdOx1h7HahMbp7s6ap5icz4BAnOpkyjtGlUGJS00wmPj4Kr2",
+      "pk_test_51PGDQKSEBnF3Dk583Lq3OukgmswxvtpKGe156nSgSRl44JGGzLE8YHzGJv60nU6AmyBQaBz5ydO9VrJpv0y8Bx7G003mtuigry",
   });
 });
 

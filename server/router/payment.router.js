@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const stripe = require("stripe")(
-  "sk_test_51PGDQKSEBnF3Dk586BtP7lK9d7rIn0oNwI6y2JOmSYbzub2uvuqz9DxZM8jStkDfRo4zdJ6aOknlmApYMWplUYjb00UY0rfxTw"
+  "sk_test_51PGDQKSEBnF3Dk58CyzSyUIWsd04IGW8mOP1O7ml4IR6BtlhVcbru1eeW7B2wVWSIOn9Fd9WEHPu0w3C0Ys01V9T00DniPspdd"
 );
 
 router.post("/create-subscription", async (req, res) => {
